@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apple Mobile</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f5f5;
+}
+
+.hero{
+background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?auto=format&fit=crop&w=1200&q=80');
+background-size:cover;
+background-position:center;
+height:450px;
+}
+
+.overlay{
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+.logo{
+width:80px;
+height:80px;
+object-fit:contain;
+margin-bottom:10px;
+filter: brightness(0) invert(1);
+}
+
+.title{
+color:white;
+font-size:50px;
+}
+
+.subtitle{
+color:#eee;
+margin-top:10px;
+text-align:center;
+padding:0 10px;
+}
+
+.search-box{
+display:flex;
+gap:15px;
+margin-top:20px;
+}
+
+.search-box input{
+width:300px;
+padding:12px 20px;
+border:none;
+border-radius:30px;
+outline:none;
+}
+
+.cart-btn{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:#007aff;
+color:white;
+cursor:pointer;
+font-weight:bold;
+}
+
+.menu{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+padding:20px;
+background:white;
+box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.menu button{
+background:#007aff;
+color:white;
+border:none;
+padding:12px 22px;
+border-radius:30px;
+cursor:pointer;
+font-size:15px;
+transition:0.3s;
+}
+
+.menu button:hover{
+background:#0056b3;
+}
+
+.section-title{
+text-align:center;
+font-size:36px;
+margin-top:30px;
+margin-bottom:10px;
+}
+
+.products{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+padding:20px;
+}
+
+.card{
+width:280px;
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 4px 12px rgba(0,0,0,.1);
+transition: transform 0.2s;
+}
+
+.card:hover{
+transform: translateY(-5px);
+}
+
+.card img{
+width:100%;
+height:300px;
+object-fit:cover;
+}
+
+.card-content{
+padding:15px;
+text-align:center;
+}
+
+.price{
+font-size:22px;
+font-weight:bold;
+color:#007aff;
+margin:10px 0;
+}
+
+.btn{
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:#007aff;
+color:white;
+cursor:pointer;
+font-weight:bold;
+transition: background 0.2s;
+}
+
+.btn:hover{
+background:#0056b3;
+}
+
+.footer{
+background:#111;
+color:white;
+padding:40px 20px;
+text-align:center;
+margin-top:40px;
+line-height:1.8;
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+<div class="overlay">
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="logo" alt="Apple Logo">
+<h1 class="title">Apple Mobile</h1>
+<p class="subtitle">
+iPhone • iPad • MacBook • Apple Watch • AirPods • Accessories
+</p>
+<div class="search-box">
+<input type="text" placeholder="Search Products...">
+<button class="cart-btn">
+🛒 Cart (<span id="cart-count">0</span>)
+</button>
+</div>
+</div>
+</header>
+
+<div class="menu">
+<button onclick="showSection('iphone')">📱 iPhone</button>
+<button onclick="showSection('ipad')">📲 iPad</button>
+<button onclick="showSection('macbook')">💻 MacBook</button>
+<button onclick="showSection('watch')">⌚ Apple Watch</button>
+<button onclick="showSection('airpods')">🎧 AirPods</button>
+<button onclick="showSection('accessories')">🔌 Accessories</button>
+</div>
+
+<!-- iPhone Section -->
+<div id="iphone">
+<h2 class="section-title">📱 iPhone</h2>
+<div class="products">
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/70/be/ab/70beabc00fa7355a73018afd5a2e932a.jpg" alt="iPhone 15">
+<div class="card-content">
+<h3>iPhone 15</h3>
+<div class="price">$599</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/66/07/f1/6607f1a2fd0af952e7b1fdc53034f353.jpg" alt="iPhone 16">
+<div class="card-content">
+<h3>iPhone 16</h3>
+<div class="price">$699</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/736x/a0/d9/0c/a0d90c26076119b39e36eeacac6b39a8.jpg" alt="iPhone 17">
+<div class="card-content">
+<h3>iPhone 17</h3>
+<div class="price">$899</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/92/d3/00/92d3003b922e12898d8b079cd94b6ad1.jpg" alt="iPhone 15 Pro Max">
+<div class="card-content">
+<h3>iPhone 15 Pro Max</h3>
+<div class="price">$799</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/d1/79/15/d17915a27d9884b08e765bb04af32cbd.jpg" alt="iPhone 16 Pro Max">
+<div class="card-content">
+<h3>iPhone 16 Pro Max</h3>
+<div class="price">$999</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/736x/a8/5c/d6/a85cd6f4555a80585e33e333523acf79.jpg" alt="iPhone 17 Pro Max">
+<div class="card-content">
+<h3>iPhone 17 Pro Max</h3>
+<div class="price">$1299</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- iPad Section -->
+<div id="ipad" style="display:none;">
+<h2 class="section-title">📲 iPad</h2>
+<div class="products">
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/1c/95/d6/1c95d64ff8e99f60743b817ccb0c9661.jpg" alt="iPad Pro M1">
+<div class="card-content">
+<h3>iPad Pro M1</h3>
+<div class="price">$699</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/6b/91/8c/6b918c7fcca563d480d8d3aa2e473ab7.jpg" alt="iPad Pro M2">
+<div class="card-content">
+<h3>iPad Pro M2</h3>
+<div class="price">$799</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/736x/4d/28/ee/4d28eee6922b66c3a9b3372546009661.jpg" alt="iPad Pro M3">
+<div class="card-content">
+<h3>iPad Pro M3</h3>
+<div class="price">$899</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/5b/23/53/5b2353e578f90e60f16de47b77f655b5.jpg" alt="iPad Pro M4">
+<div class="card-content">
+<h3>iPad Pro M4</h3>
+<div class="price">$999</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/49/cb/0f/49cb0f2af69e9a73f25fbec9e835f0e6.jpg" alt="iPad Pro M5">
+<div class="card-content">
+<h3>iPad Pro M5</h3>
+<div class="price">$1199</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- MacBook Section -->
+<div id="macbook" style="display:none;">
+<h2 class="section-title">💻 MacBook</h2>
+<div class="products">
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/62/1c/f8/621cf821b589702ba3a04685255a6831.jpg" alt="MacBook Pro M1">
+<div class="card-content">
+<h3>MacBook Pro M1</h3>
+<div class="price">$999</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/736x/b6/68/a0/b668a073f2d8b5e42160eeace506bbaf.jpg" alt="MacBook Pro M2">
+<div class="card-content">
+<h3>MacBook Pro M2</h3>
+<div class="price">$1199</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/18/30/7d/18307dfde0f655618d822607bda8c931.jpg" alt="MacBook Pro M3">
+<div class="card-content">
+<h3>MacBook Pro M3</h3>
+<div class="price">$1399</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/736x/20/bc/bd/20bcbd1ca089d6170219436b25bc1487.jpg" alt="MacBook Pro M4">
+<div class="card-content">
+<h3>MacBook Pro M4</h3>
+<div class="price">$1599</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/736x/28/7f/f0/287ff0257e310f51aedfb524d4395dce.jpg" alt="MacBook Pro M5">
+<div class="card-content">
+<h3>MacBook Pro M5</h3>
+<div class="price">$1699</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- Apple Watch Section -->
+<div id="watch" style="display:none;">
+<h2 class="section-title">⌚ Apple Watch</h2>
+<div class="products">
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/27/a3/21/27a32121cea099dec843e91095247824.jpg" alt="Apple Watch Series 9">
+<div class="card-content">
+<h3>Apple Watch Series 9</h3>
+<div class="price">$399</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/88/71/11/887111e0b01558e57f2087c8c80ceec0.jpg" alt="Apple Watch Series 10">
+<div class="card-content">
+<h3>Apple Watch Series 10</h3>
+<div class="price">$499</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/61/e0/94/61e094e616f911653e5c70f4941a8556.jpg" alt="Apple Watch Series 11">
+<div class="card-content">
+<h3>Apple Watch Series 11</h3>
+<div class="price">$599</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/236x/1b/57/0b/1b570b6e540d34a3292f5a0d0de7694a.jpg" alt="Apple Watch Ultra 4">
+<div class="card-content">
+<h3>Apple Watch Ultra 4</h3>
+<div class="price">$799</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- AirPods Section -->
+<div id="airpods" style="display:none;">
+<h2 class="section-title">🎧 AirPods</h2>
+<div class="products">
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/a0/ca/64/a0ca644fdd253601559b0c526b790ad6.jpg" alt="AirPods 2">
+<div class="card-content">
+<h3>AirPods 2</h3>
+<div class="price">$199</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/736x/d4/3f/99/d43f991c5b9b5c979405b9697c0e1e2d.jpg" alt="AirPods 3">
+<div class="card-content">
+<h3>AirPods 3</h3>
+<div class="price">$299</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/85/1a/5d/851a5d8fd8a272209cdf7be762d407bf.jpg" alt="AirPods 4">
+<div class="card-content">
+<h3>AirPods 4</h3>
+<div class="price">$399</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- Accessories Section -->
+<div id="accessories" style="display:none;">
+<h2 class="section-title">🔌 Accessories</h2>
+<div class="products">
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/ad/e9/33/ade9330d96eb3217cda2843dce7ccba6.jpg" alt="USB-C Cable">
+<div class="card-content">
+<h3>USB-C Cable</h3>
+<div class="price">$15</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/1200x/e6/cb/b2/e6cbb2bf3a18fb0a2cd5ffe78976d82d.jpg" alt="20W Adapter">
+<div class="card-content">
+<h3>20W Adapter</h3>
+<div class="price">$20</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://i.pinimg.com/736x/40/71/07/407107a0443886f6d2b37f0718425287.jpg" alt="MagSafe Charger">
+<div class="card-content">
+<h3>MagSafe Charger</h3>
+<div class="price">$30</div>
+<button class="btn" onclick="addToCart()">Add To Cart</button>
+</div>
+</div>
+
+</div>
+</div>
+
+<footer class="footer">
+<h2>Apple Mobile</h2>
+<p>Telegram: @AppleMobile</p>
+<p>Facebook: Apple Mobile</p>
+<p>Phone: 012345678</p>
+<p>📍 Phnom Penh, Cambodia</p>
+</footer>
+
+<script>
+let cart = 0;
+
+function addToCart(){
+    cart++;
+    document.getElementById("cart-count").innerText = cart;
+    alert("Added To Cart!");
+}
+
+function showSection(id){
+    const sections = ['iphone', 'ipad', 'macbook', 'watch', 'airpods', 'accessories'];
+
+    sections.forEach(function(section){
+        const el = document.getElementById(section);
+        if(el){
+            el.style.display = 'none';
+        }
+    });
+
+    const activeEl = document.getElementById(id);
+    if(activeEl){
+        activeEl.style.display = 'block';
+    }
+}
+</script>
+
+</body>
+</html>
